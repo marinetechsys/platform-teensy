@@ -17,12 +17,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tsandmann/platform-teensy.git"
+    "url": "https://github.com/marinetechsys/platform-teensy.git"
   },
   "version": "4.18.0",
   "frameworks": {
     "arduino": {
-      "package": "framework-arduinoteensy-ts",
+      "package": "framework-arduinoteensy-mts",
+      "script": "builder/frameworks/arduino.py"
+    },
+    "freertos": {
+      "package": "framework-arduinoteensy-freertos",
       "script": "builder/frameworks/arduino.py"
     },
     "zephyr": {
@@ -56,11 +60,17 @@
       "owner": "platformio",
       "version": "~1.159.0"
     },
-    "framework-arduinoteensy-ts": {
+    "framework-arduinoteensy-mts": {
       "type": "framework",
       "optional": false,
-      "owner": "tsandmann",
-      "version": "https://github.com/tsandmann/teensy-cores.git#no_warnings"
+      "owner": "marinetechsys",
+      "version": "https://github.com/marinetechsys/teensy-cores.git"
+    },
+    "framework-arduinoteensy-freertos": {
+      "type": "framework",
+      "optional": false,
+      "owner": "marinetechsys",
+      "version": "https://github.com/marinetechsys/teensy-cores.git"
     },
     "framework-zephyr": {
       "type": "framework",
