@@ -3,6 +3,9 @@
     "arduino": {
       "ldscript": "imxrt1062_t41.ld"
     },
+    "freertos": {
+      "ldscript": "imxrt1062_t41.ld"
+    },
     "core": "teensy4",
     "cpu": "cortex-m7",
     "extra_flags": "-D__IMXRT1062__ -DARDUINO_TEENSY41",
@@ -20,7 +23,8 @@
   },
   "frameworks": [
     "arduino",
-    "zephyr"
+    "zephyr",
+    "freertos"
   ],
   "name": "Teensy 4.1",
   "upload": {
