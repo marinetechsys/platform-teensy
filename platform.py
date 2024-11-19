@@ -109,6 +109,8 @@ class TeensytsPlatform(PlatformBase):
         frameworks = variables.get("pioframework", [])
         if "arduino" in frameworks:
             self.packages.pop("toolchain-gccarmnoneeabi", None)
+        elif "freertos" in frameworks:
+            self.packages.pop("toolchain-gccarmnoneeabi", None)
         else:
             self.packages.pop("toolchain-gccarmnoneeabi-teensy", None)
 
@@ -119,6 +121,8 @@ class TeensytsPlatform(PlatformBase):
             if not IS_WINDOWS:
                 self.packages["tool-gperf"]["optional"] = False
         elif "arduino" in frameworks and board_config.get("build.core", "") == "teensy4":
+            self.packages["tool-teensy"]["optional"] = False
+        elif "freertos" in frameworks and board_config.get("build.core", "") == "teensy4":
             self.packages["tool-teensy"]["optional"] = False
 
         # configure J-LINK tool
