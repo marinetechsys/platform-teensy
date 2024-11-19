@@ -56,19 +56,19 @@
     },
     "framework-arduinoteensy": {
       "type": "framework",
-      "optional": false,
+      "optional": true,
       "owner": "platformio",
       "version": "~1.159.0"
     },
     "framework-arduinoteensy-mts": {
       "type": "framework",
-      "optional": false,
+      "optional": true,
       "owner": "marinetechsys",
       "version": "https://github.com/marinetechsys/teensy-cores-arduino.git"
     },
     "framework-arduinoteensy-freertos": {
       "type": "framework",
-      "optional": false,
+      "optional": true,
       "owner": "marinetechsys",
       "version": "https://github.com/marinetechsys/teensy-cores.git"
     },
