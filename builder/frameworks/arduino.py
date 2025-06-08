@@ -162,7 +162,7 @@ env.Append(
     ],
 
     CPPPATH=[
-        join(FRAMEWORK_DIR, ".", BUILD_CORE)
+        join(FRAMEWORK_DIR, "cores", BUILD_CORE)
     ],
 
     LIBSOURCE_DIRS=[
@@ -435,10 +435,10 @@ if "cortex-m" in cpu:
 
 # Teensy 2.x Core
 if BUILD_CORE == "teensy":
-    env.Append(CPPPATH=[join(FRAMEWORK_DIR, ".")])
+    env.Append(CPPPATH=[join(FRAMEWORK_DIR, "cores")])
 
     # search relative includes in teensy directories
-    core_dir = join(FRAMEWORK_DIR, ".", "teensy")
+    core_dir = join(FRAMEWORK_DIR, "cores", "teensy")
     for item in sorted(listdir(core_dir)):
         file_path = join(core_dir, item)
         if not isfile(file_path):
@@ -455,7 +455,7 @@ if BUILD_CORE == "teensy":
         with open(file_path, "w", encoding="latin-1") as fp:
             fp.write(content)
 else:
-    env.Prepend(LIBPATH=[join(FRAMEWORK_DIR, ".", BUILD_CORE)])
+    env.Prepend(LIBPATH=[join(FRAMEWORK_DIR, "cores", BUILD_CORE)])
 
 #
 # Target: Build Core Library
@@ -477,7 +477,7 @@ if "build.variant" in env.BoardConfig():
 
 libs.append(env.BuildLibrary(
     join("$BUILD_DIR", "FrameworkArduino"),
-    join(FRAMEWORK_DIR, ".", BUILD_CORE),
+    join(FRAMEWORK_DIR, "cores", BUILD_CORE),
     src_filter="+<*> -<Blink.cc>"
 ))
 
