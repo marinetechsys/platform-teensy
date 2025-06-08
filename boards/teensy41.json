@@ -3,14 +3,14 @@
     "arduino": {
       "ldscript": "imxrt1062_t41.ld"
     },
-    "freertos": {
-      "ldscript": "imxrt1062_t41.ld"
-    },
     "core": "teensy4",
     "cpu": "cortex-m7",
     "extra_flags": "-D__IMXRT1062__ -DARDUINO_TEENSY41",
     "f_cpu": "600000000",
     "mcu": "imxrt1062",
+    "freertos": {
+        "variant": "teensy41"
+    },
     "zephyr": {
         "variant": "teensy41"
     }
