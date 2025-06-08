@@ -1,5 +1,5 @@
 {
-  "name": "teensy-ts",
+  "name": "teensy-mts",
   "title": "Teensy",
   "description": "Teensy is a complete USB-based microcontroller development system, in a very small footprint, capable of implementing many types of projects. All programming is done via the USB port. No special programmer is needed, only a standard USB cable and a PC or Macintosh with a USB port.",
   "homepage": "https://www.pjrc.com/teensy",
@@ -26,7 +26,7 @@
       "script": "builder/frameworks/arduino.py"
     },
     "freertos": {
-      "package": "framework-arduinoteensy-freertos",
+      "package": "framework-arduinoteensy-freertos-mts",
       "script": "builder/frameworks/freertos.py"
     },
     "zephyr": {
@@ -66,7 +66,7 @@
       "owner": "marinetechsys",
       "version": "https://github.com/marinetechsys/teensy-cores.git"
     },
-    "framework-arduinoteensy-freertos": {
+    "framework-arduinoteensy-freertos-mts": {
       "type": "framework",
       "optional": true,
       "owner": "marinetechsys",
