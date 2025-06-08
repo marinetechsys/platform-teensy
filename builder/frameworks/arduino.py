@@ -112,7 +112,7 @@ env = DefaultEnvironment()
 platform = env.PioPlatform()
 
 FRAMEWORK_DIR = platform.get_package_dir("framework-arduinoteensy-mts")
-FRAMEWORK_DIR_LIBS = platform.get_package_dir("framework-arduinoteensy")
+FRAMEWORK_DIR_LIBS = platform.get_package_dir("framework-arduinoteensy-mts")
 FRAMEWORK_VERSION = platform.get_package_version("framework-arduinoteensy-mts")
 BUILD_CORE = env.BoardConfig().get("build.core")
 

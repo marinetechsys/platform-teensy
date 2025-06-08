@@ -111,9 +111,9 @@ def print_size_teensy4(target, source, env):
 env = DefaultEnvironment()
 platform = env.PioPlatform()
 
-FRAMEWORK_DIR = platform.get_package_dir("framework-arduinoteensy-freertos")
-FRAMEWORK_DIR_LIBS = platform.get_package_dir("framework-arduinoteensy")
-FRAMEWORK_VERSION = platform.get_package_version("framework-arduinoteensy-freertos")
+FRAMEWORK_DIR = platform.get_package_dir("framework-arduinoteensy-freertos-mts")
+FRAMEWORK_DIR_LIBS = platform.get_package_dir("framework-arduinoteensy-freertos-mts")
+FRAMEWORK_VERSION = platform.get_package_version("framework-arduinoteensy-freertos-mts")
 BUILD_CORE = env.BoardConfig().get("build.core")
 
 assert isdir(FRAMEWORK_DIR)
