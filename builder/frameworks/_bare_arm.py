@@ -42,7 +42,7 @@ env.Append(
         "-fdata-sections",
         "-mthumb",
         "-mcpu=%s" % env.BoardConfig().get("build.cpu"),
-        "-nostdlib"
+        #"-nostdlib"
     ],
 
     CXXFLAGS=[

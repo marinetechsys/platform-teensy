@@ -234,7 +234,7 @@ elif "BOARD" in env and BUILD_CORE in ("teensy3", "teensy4"):
             "-Wl,--wrap=realloc",
             "-mthumb",
             "-mcpu=%s" % env.BoardConfig().get("build.cpu"),
-            "-nostdlib",
+            #"-nostdlib",
             "--specs=nano.specs"
         ],
 
