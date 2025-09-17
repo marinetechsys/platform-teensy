@@ -244,7 +244,7 @@ elif "BOARD" in env and BUILD_CORE in ("teensy3", "teensy4"):
 
         CXXFLAGS=[
             "-fexceptions",
-            "-fno-non-call-exceptions",
+            "-fnon-call-exceptions",
             "-fno-omit-frame-pointer",
             "-funwind-tables",
             "-fasynchronous-unwind-tables",
@@ -255,8 +255,6 @@ elif "BOARD" in env and BUILD_CORE in ("teensy3", "teensy4"):
             "-Wl,--wrap=free",
             "-Wl,--wrap=calloc",
             "-Wl,--wrap=realloc",
-            "-Wl,--undefined=operator new",
-            "-Wl,--undefined=operator delete",
             "-Wno-error=narrowing",
             "-Wno-volatile",
             "-fpermissive"
@@ -277,9 +275,7 @@ elif "BOARD" in env and BUILD_CORE in ("teensy3", "teensy4"):
             "-Wl,--wrap=free",
             "-Wl,--wrap=calloc",
             "-Wl,--wrap=realloc",
-            "-Wl,--undefined=operator new",
-            "-Wl,--undefined=operator delete",
-            "-nostartfiles",
+            "-Wl,--eh-frame-hdr",
             "-mthumb",
             "-mcpu=%s" % env.BoardConfig().get("build.cpu"),
             "--specs=nano.specs"
