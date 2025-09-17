@@ -228,6 +228,8 @@ elif "BOARD" in env and BUILD_CORE in ("teensy3", "teensy4"):
             "-Wextra",
             "-ffunction-sections",  # place each function in its own section
             "-fdata-sections",
+            "-fstack-protector-strong",
+            "-fno-strict-aliasing",
             "-Wl,--wrap=malloc",
             "-Wl,--wrap=free",
             "-Wl,--wrap=calloc",
@@ -241,10 +243,11 @@ elif "BOARD" in env and BUILD_CORE in ("teensy3", "teensy4"):
         ],
 
         CXXFLAGS=[
-            "-fno-exceptions",
+            "-fexceptions",
             "-fno-non-call-exceptions",
-            "-fno-unwind-tables",
-            "-fno-asynchronous-unwind-tables",
+            "-fno-omit-frame-pointer",
+            "-funwind-tables",
+            "-fasynchronous-unwind-tables",
             "-felide-constructors",
             "-fno-rtti",
             "-std=gnu++20",
@@ -417,8 +420,8 @@ elif "BOARD" in env and BUILD_CORE in ("teensy3", "teensy4"):
         # for others => TEENSY_OPT_FASTER
         else:
             env.Append(
-                CCFLAGS=["-O2"],
-                LINKFLAGS=["-O2"]
+                CCFLAGS=["-Os"],
+                LINKFLAGS=["-Os"]
             )
 
 
