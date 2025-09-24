@@ -236,7 +236,6 @@ elif "BOARD" in env and BUILD_CORE in ("teensy3", "teensy4"):
             "-Wl,--undefined=operator delete",
             "-mthumb",
             "-mcpu=%s" % env.BoardConfig().get("build.cpu"),
-            #"-nostdlib",
             "--specs=nano.specs"
         ],
 
@@ -246,7 +245,7 @@ elif "BOARD" in env and BUILD_CORE in ("teensy3", "teensy4"):
             "-fno-unwind-tables",
             "-fno-asynchronous-unwind-tables",
             "-felide-constructors",
-            "-fno-rtti",
+            "-frtti",
             "-std=gnu++20",
             "-Wl,--wrap=malloc",
             "-Wl,--wrap=free",
