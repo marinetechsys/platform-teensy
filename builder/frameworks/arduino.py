@@ -237,8 +237,7 @@ elif "BOARD" in env and BUILD_CORE in ("teensy3", "teensy4"):
             "-Wl,--undefined=operator new",
             "-Wl,--undefined=operator delete",
             "-mthumb",
-            "-mcpu=%s" % env.BoardConfig().get("build.cpu"),
-            "--specs=nano.specs"
+            "-mcpu=%s" % env.BoardConfig().get("build.cpu")
         ],
 
         CXXFLAGS=[
@@ -276,8 +275,7 @@ elif "BOARD" in env and BUILD_CORE in ("teensy3", "teensy4"):
             "-Wl,--wrap=realloc",
             "-Wl,--eh-frame-hdr",
             "-mthumb",
-            "-mcpu=%s" % env.BoardConfig().get("build.cpu"),
-            "--specs=nano.specs"
+            "-mcpu=%s" % env.BoardConfig().get("build.cpu")
         ],
 
         LIBS=["m", "stdc++"]
@@ -409,8 +407,8 @@ elif "BOARD" in env and BUILD_CORE in ("teensy3", "teensy4"):
         # for Teensy LC => TEENSY_OPT_SMALLEST_CODE
         if env.BoardConfig().id_ == "teensylc":
             env.Append(
-                CCFLAGS=["-Os", "--specs=nano.specs"],
-                LINKFLAGS=["-Os", "--specs=nano.specs"]
+                CCFLAGS=["-Os"],
+                LINKFLAGS=["-Os"]
             )
         # for others => TEENSY_OPT_FASTER
         else:
