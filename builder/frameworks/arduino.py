@@ -416,9 +416,7 @@ elif "BOARD" in env and BUILD_CORE in ("teensy3", "teensy4"):
                 "-Wcast-align",
                 "-fstack-protector-strong",
                 "-fno-strict-aliasing",
-                "-fno-fast-math",
                 "-ffp-contract=off",
-                "-mno-unaligned-access",
                 "-fwrapv"
             ],
             CXXFLAGS=[
