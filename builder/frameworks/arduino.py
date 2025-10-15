@@ -402,6 +402,46 @@ elif "BOARD" in env and BUILD_CORE in ("teensy3", "teensy4"):
             CCFLAGS=["-Os"],
             LINKFLAGS=["-Os"]
         )
+    elif "TEENSY_OPT_STABLE" in env['CPPDEFINES']:
+        # Custom stability-focused build profile
+        env.Append(
+            CCFLAGS=[
+                "-O1",
+                "-Wall",
+                "-Wextra",
+                "-Wshadow",
+                "-Wdouble-promotion",
+                "-Wconversion",
+                "-Wnull-dereference",
+                "-Wcast-align",
+                "-fstack-protector-strong",
+                "-fno-strict-aliasing",
+                "-fno-fast-math",
+                "-ffp-contract=off",
+                "-mno-unaligned-access",
+                "-fwrapv"
+            ],
+            CXXFLAGS=[
+                "-fno-omit-frame-pointer",
+                "-funwind-tables",
+                "-fasynchronous-unwind-tables",
+                "-felide-constructors",
+                "-std=gnu++20"
+            ],
+            LINKFLAGS=[
+                "-O1",
+                "-Wl,--gc-sections",
+                "-Wl,--relax"
+            ]
+        )
+
+        # optional: disable LTO completely for stability
+        env['CCFLAGS'] = [f for f in env['CCFLAGS'] if not f.startswith("-flto")]
+        env['LINKFLAGS'] = [f for f in env['LINKFLAGS'] if not f.startswith("-flto")]
+
+        # optional: log that the stable profile is active
+        print(">>> Building with TEENSY_OPT_STABLE (O1, full diagnostics, stack protection, no LTO)")
+
     # default profiles
     else:
         # for Teensy LC => TEENSY_OPT_SMALLEST_CODE
