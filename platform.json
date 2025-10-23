@@ -64,7 +64,7 @@
       "type": "framework",
       "optional": true,
       "owner": "marinetechsys",
-      "version": "https://github.com/marinetechsys/teensy-cores.git#v2.0.0"
+      "version": "https://github.com/marinetechsys/teensy-cores.git#v2.0.1"
     },
     "framework-arduinoteensy-freertos-mts": {
       "type": "framework",
